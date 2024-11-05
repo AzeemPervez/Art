@@ -32,16 +32,16 @@ const itemNames = [
 
 // Define moreImages as a Record<number, string[]> to satisfy TypeScript
 const moreImages: Record<number, string[]> = {
-  0: ["/images/image1.jpg", "/images/sky2.jpg", "/images/sky3.jpg", "/images/sky4.jpg", "/images/sky5.jpg", "/images/sky6.jpg"],
-  1: ["/images/image2.jpg", "/images/desert2.jpg", "/images/desert3.jpg", "/images/desert4.jpg", "/images/desert5.jpg", "/images/desert6.jpg"],
-  2: ["/images/image3.jpg", "/images/forest2.jpg", "/images/forest3.jpg", "/images/forest4.jpg", "/images/forest5.jpg", "/images/forest6.jpg"],
-  3: ["/images/image4.jpg", "/images/beach2.jpg", "/images/beach3.jpg", "/images/beach4.jpg", "/images/beach5.jpg", "/images/beach6.jpg"],
-  4: ["/images/image5.jpg", "/images/space2.jpg", "/images/space3.jpg", "/images/space4.jpg", "/images/space5.jpg", "/images/space6.jpg"],
-  5: ["/images/image6.jpg", "/images/city2.jpg", "/images/city3.jpg", "/images/city4.jpg", "/images/city5.jpg", "/images/city6.jpg"],
-  6: ["/images/image7.jpg", "/images/anime2.jpg", "/images/anime3.jpg", "/images/anime4.jpg", "/images/anime5.jpg", "/images/anime6.jpg"],
-  7: ["/images/image8.jpg", "/images/games2.jpg", "/images/games3.jpg", "/images/games4.jpg", "/images/games5.jpg", "/images/games6.jpg"],
-  8: ["/images/image9.jpg", "/images/wallpaper2.jpg", "/images/wallpaper3.jpg", "/images/wallpaper4.jpg", "/images/wallpaper5.jpg", "/images/wallpaper6.jpg"],
-  9: ["/images/image10.jpg", "/images/art2.jpg", "/images/art3.jpg", "/images/art4.jpg", "/images/art5.jpg", "/images/art6.jpg"],
+  0: ["/images/image1.jpg", "/images/sky2.jpg", "/images/sky3.jpg", "/images/sky4.jpg", "/images/sky5.jpg"],
+  1: ["/images/image2.jpg", "/images/desert2.jpg", "/images/desert3.jpg", "/images/desert4.jpg", "/images/desert5.jpg"],
+  2: ["/images/image3.jpg", "/images/forest2.jpg", "/images/forest3.jpg", "/images/forest4.jpg", "/images/forest5.jpg"],
+  3: ["/images/image4.jpg", "/images/beach2.jpg", "/images/beach3.jpg", "/images/beach4.jpg", "/images/beach5.jpg"],
+  4: ["/images/image5.jpg", "/images/space2.jpg", "/images/space3.jpg", "/images/space4.jpg", "/images/space5.jpg"],
+  5: ["/images/image6.jpg", "/images/city2.jpg", "/images/city3.jpg", "/images/city4.jpg", "/images/city5.jpg"],
+  6: ["/images/image7.jpg", "/images/anime2.jpg", "/images/anime3.jpg", "/images/anime4.jpg", "/images/anime5.jpg"],
+  7: ["/images/image8.jpg", "/images/games2.jpg", "/images/games3.jpg", "/images/games4.jpg", "/images/games5.jpg"],
+  8: ["/images/image9.jpg", "/images/wallpaper2.jpg", "/images/wallpaper3.jpg", "/images/wallpaper4.jpg", "/images/wallpaper5.jpg"],
+  9: ["/images/image10.jpg", "/images/art2.jpg", "/images/art3.jpg", "/images/art4.jpg", "/images/art5.jpg"],
 };
 
 export default function HomePage() {
@@ -75,17 +75,18 @@ export default function HomePage() {
       </div>
 
       <div className="flex">
-        {/* Left Side Navbar */}
-        <div className="w-1/6 bg-blue-900 text-white py-10 px-6 flex flex-col items-center">
+        {/* Left Side Navbar with Modern Styling */}
+        <div className="w-1/6 bg-gradient-to-b from-blue-800 to-blue-600 text-white py-10 px-6 flex flex-col items-center rounded-r-lg shadow-lg">
           <h1 className="text-3xl font-bold mb-8">Gallery</h1>
-          <ul className="space-y-4">
+          <ul className="space-y-4 w-full">
             {itemNames.map((name, index) => (
-              <li key={index}>
+              <li key={index} className="w-full">
                 <button
                   onClick={() => handleNavClick(index)}
-                  className="hover:text-blue-300 focus:outline-none"
+                  className="w-full text-left px-4 py-2 rounded-lg transition-transform duration-300 transform hover:bg-blue-500 hover:scale-105 focus:outline-none relative"
                 >
-                  {name}
+                  <span className="relative z-10">{name}</span>
+                  <span className="absolute inset-0 w-full h-[2px] bg-white rounded-full bottom-1 left-4 transition-transform duration-300 transform scale-x-0 hover:scale-x-100"></span>
                 </button>
               </li>
             ))}
@@ -142,7 +143,7 @@ export default function HomePage() {
       {/* Dialog Box */}
       {showDialog && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-8 w-3/4 h-3/4 overflow-y-auto relative">
+          <div className="bg-white rounded-lg p-8 w-[80vw] h-[80vh] overflow-y-auto relative">
             <button
               onClick={() => setShowDialog(false)}
               className="absolute top-4 right-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 focus:outline-none"
